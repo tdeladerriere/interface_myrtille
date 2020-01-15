@@ -21,6 +21,8 @@ float gain = 0;
 float volume;
 static final int FADE = 100;
 String r;
+String path = "data/";
+
 
 String CurrentStation = "http://direct.fipradio.fr/live/fip-midfi.mp3";
 String[] stations = {"http://direct.fipradio.fr/live/fip-midfi.mp3", 
@@ -42,7 +44,7 @@ void setup(){
   
   
   // 0 pour PC limbothai, 6 pour RPI
-  Mixer mixer = AudioSystem.getMixer(mixerInfo[6]);
+  Mixer mixer = AudioSystem.getMixer(mixerInfo[0]);
   minim.setOutputMixer(mixer);
   out = minim.getLineOut();
   
@@ -91,7 +93,7 @@ void setup(){
      .addItems(l);
   
   
-  PImage[] imgs = {loadImage("play2.png"),loadImage("pause2.png"),loadImage("plus2.png"),loadImage("minus2.png")};
+  PImage[] imgs = {loadImage(path+"play2.png"),loadImage(path+"pause2.png"),loadImage(path+"plus2.png"),loadImage(path+"minus2.png")};
   
   cp6 = new ControlP5(this);
   ControlFont cf2 = new ControlFont(stationfont,20);
@@ -152,7 +154,7 @@ void setup(){
    .setSize(imgs[1])
    ;
    
-  bg = loadImage("wallpaper"+r+".jpg");
+  bg = loadImage(path+"wallpaper"+r+".jpg");
   
   exitbutton = new ControlP5(this);
   exitbutton.setFont(cf2);
